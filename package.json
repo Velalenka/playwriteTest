@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/register": "^7.13.16",
+    "mocha": "^8.4.0",
+    "playwright": "^1.10.0"
+  },
+  "name": "playwriteTest",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha *.spec.js ~timeout 50000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Velalenka/playwriteTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Velalenka/playwriteTest/issues"
+  },
+  "homepage": "https://github.com/Velalenka/playwriteTest#readme"
+}
