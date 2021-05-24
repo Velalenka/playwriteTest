@@ -55,7 +55,7 @@ describe('Chairish test suit', () => {
         expect(productViewTitle).to.equal(convertedTitle);
     });
 
-    it('User can add product to cart', async () => {
+    it.only('User can add product to cart', async () => {
         await page.fill('#id_email', 'alena.tulatest@gmail.com');
         await page.fill('#id_password', 'Password1');
         await page.click('.form-auth .form-actions .btn-default');
