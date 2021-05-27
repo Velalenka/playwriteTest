@@ -24,8 +24,7 @@ const ProductPage = function ()
     {
         await page.waitForSelector(addedToFavNotification);
         const notificationText = await page.textContent(addedToFavNotification);
-        let notificationText1 = notificationText;
-        return notificationText1;
+        return notificationText;
     };
 }
 export { ProductPage };
