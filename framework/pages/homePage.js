@@ -1,47 +1,34 @@
 const HomePage = function ()
 {
-    const account = ('.account-display-name');
-    const searchField = ('.search-field .autocomplete-query');
-    const categoryTitle = ('span.collection-title');
-    const productTitle = ('[data-product-url="/product/3145664/pink-murano-glass-flush-mount-by-carlo-nason"] ' +
-        '.product-title');
-    const productViewButton = ('[data-product-url="/product/3145664/pink-murano-glass-flush-mount-by-carlo-nason"] .product-title');
+    const account = ('.givenNameAccountSelector');
+    const searchField = ('#searchTextbox');
+    const searchedProductTitle = ('.listing-name');
 
     this.getLoggedAccountText = async function(page)
     {
-        await page.waitForNavigation({waitUntil: "networkidle"});
+        await page.waitForSelector(account);
         const accountText = await page.textContent(account);
         return accountText;
     };
 
-    this.searchForItem = async function(page)
+    this.searchForItem = async function(page, item)
     {
-        await page.waitForNavigation({waitUntil: "networkidle"});
-        await page.fill(searchField, 'Lighting');
+        await page.waitForSelector(searchField, );
+        await page.fill(searchField, item);
         await page.press(searchField, 'Enter');
     };
 
-    this.getCollectionTitle = async function(page)
+    this.getSearchedProductTitle = async function(page)
     {
-        await page.waitForNavigation({waitUntil: "networkidle"});
-        const categoryText = await page.textContent(categoryTitle);
-        return categoryText;
+        await page.waitForSelector(searchedProductTitle);
+        const productText = await page.textContent(searchedProductTitle);
+        return productText;
     };
 
     this.goToProductPage = async function(page)
     {
-        await page.waitForNavigation({waitUntil: "networkidle"});
-        await page.click(productViewButton);
-    };
-
-    this.getProductTitle = async function(page)
-    {
-        await page.waitForNavigation({waitUntil: "networkidle"});
-        const productTitle = await page.textContent(productTitle);
-        const convertedTitle = JSON.stringify(productTitle)
-            .replace(/\\n|"/g, '')
-            .trim();
-        return convertedTitle;
+        await page.waitForSelector(searchedProductTitle);
+        await page.click(searchedProductTitle);
     };
 }
 export { HomePage };

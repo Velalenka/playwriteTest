@@ -1,8 +1,8 @@
 const LoginPage = function ()
 {
-    const loginButton = ('.form-auth .form-actions .btn-default');
-    const passwordField = ('#id_password');
-    const usernameField = ('#id_email');
+    const loginButton = ('#edit-submit');
+    const passwordField = ('#edit-pass');
+    const usernameField = ('#edit-name');
 
     this.login = async function(page)
     {
