@@ -1,6 +1,6 @@
 import chai from 'chai';
-import {goto, run, stop} from './lib/browser';
-import { app } from './framework/pages';
+import {goto, run, stop} from '../lib/driver/browser';
+import { app } from '../framework/pages';
 const {expect} = chai;
 
 const productName = 'Large 2-Door Cabinet by Guillerme & Chambron';
@@ -56,5 +56,11 @@ describe('InCollect test suit for Page Object', () => {
         await app().FavouritesPage().removeProductFromFavourites(page);
         const deleteMessage = await app().FavouritesPage().removeProductFromFavouritesNotification(page);
         expect(deleteMessage).to.equal('Deleted');
+    });
+
+    it('User can view Furniture Dealers', async () => {
+        await app().HeaderMenuFragment().goToFurnitureDealers(page);
+        const dealersMenuText = await app().FurnitureDealersPage().getFurnitureDealersHeader(page);
+        expect(dealersMenuText).to.equal('Dealers');
     });
 })
